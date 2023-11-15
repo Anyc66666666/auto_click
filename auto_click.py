@@ -10,11 +10,16 @@ print("请在配置文件 config.txt 中输入所有的坐标，以回车键分�
 coordinates = []
 pattern = r"\((-?\d+),(-?\d+)\)"
 contents = ""
-with open('config.txt', encoding='utf-8') as config:
-    print("-------------------------")
-    print("------正在读取配置文件------")
-    contents = config.read()
-    contents = contents.rstrip()
+try:
+    with open('config.txt', encoding='utf-8') as config:
+        print("-------------------------")
+        print("------正在读取配置文件------")
+        contents = config.read()
+        contents = contents.rstrip()
+except Exception:
+    print("配置文件 config.txt 未找到")
+    time.sleep(5)
+    sys.exit()
 
 if contents == "":
     print("配置文件错误")
@@ -42,4 +47,4 @@ while True:
         pyautogui.click(co.x, co.y)
         time.sleep(1)
 
-# Pyinstaller -F -i auto_clik.ico auto_click.py
+# Pyinstaller -F -i auto_click.ico auto_click.py
