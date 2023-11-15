@@ -9,3 +9,5 @@
 
 # auto_click.py 
 用于依次点击坐标配置文件中的所有坐标
+
+# 使用 Pyinstaller 编译成二进制文件
